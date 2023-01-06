@@ -1,5 +1,8 @@
-// CommonJS Modules
-const express = require('express');
+// CommonJS
+// const express = require('express');
+
+// ES2015/ ES6
+import express from 'express';
 
 const app = express();
 
