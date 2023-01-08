@@ -3,8 +3,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 require('./services/passport'); // require executes ./services/passport file, w/c doesn't return anything
+require('./models/User');
 
-// connect to mongodb
+// connect to mongodb database/cluster
 mongoose.connect(keys.mongoURI);
 
 const app = express();
