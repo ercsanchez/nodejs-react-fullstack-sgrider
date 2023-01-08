@@ -2,8 +2,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+require('./models/User'); // models must be loaded before passport
 require('./services/passport'); // require executes ./services/passport file, w/c doesn't return anything
-require('./models/User');
 
 // connect to mongodb database/cluster
 mongoose.connect(keys.mongoURI);
