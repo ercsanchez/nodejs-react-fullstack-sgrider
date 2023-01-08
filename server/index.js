@@ -1,6 +1,11 @@
 // CommonJS Modules
 const express = require('express');
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
 require('./services/passport'); // require executes ./services/passport file, w/c doesn't return anything
+
+// connect to mongodb
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
