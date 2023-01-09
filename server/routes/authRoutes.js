@@ -17,7 +17,7 @@ module.exports = (app) => {
 
   // api route to view currently authenticated user
   app.get('/api/current_user', (req, res) => {
-    res.send(req.session); // view cookie that contains session data
-    // res.send(req.user); // passport attaches user model instance to the request obj
+    // res.send(req.session); // view cookie that contains session data
+    res.send(req.user); // passport attaches user model instance to the request obj
   });
 };
