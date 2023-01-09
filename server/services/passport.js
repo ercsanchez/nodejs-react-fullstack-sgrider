@@ -11,6 +11,12 @@ passport.serializeUser((user, done) => {
   // we are telling passport to use the mongodb user instance id to generate the token that will be stored in a cookie
 });
 
+passport.deserializeUser((id, done) => {
+  User.findById(id).then((user) => {
+    done(null, user);
+  });
+});
+
 passport.use(
   new GoogleStrategy(
     {
