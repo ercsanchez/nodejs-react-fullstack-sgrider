@@ -6,6 +6,11 @@ const keys = require('../config/keys');
 // get model out of mongoose
 const User = mongoose.model('users');
 
+passport.serializeUser((user, done) => {
+  done(null, user.id); // user.id refers to mongodb user's record/document _id
+  // we are telling passport to use the mongodb user instance id to generate the token that will be stored in a cookie
+});
+
 passport.use(
   new GoogleStrategy(
     {
