@@ -19,9 +19,12 @@ passport.use(
           if (existingUser) {
             // user already has a record in mongodb
             console.log('user already exists!!!');
+            done(null, existingUser);
           } else {
             // save user's google profile id in mongodb
-            new User({ googleId: profile.id }).save();
+            new User({ googleId: profile.id }).save().then((user) => {
+              done(null, user);
+            });
           }
         }
       );
