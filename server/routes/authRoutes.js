@@ -10,6 +10,11 @@ module.exports = (app) => {
 
   app.get('/auth/google/callback', passport.authenticate('google'));
 
+  app.get('/api/logout', (req, res) => {
+    req.logout(); // removes authenticated user from the cookie
+    res.send(req.user); // will show an empty screen since no user attached to cookie
+  });
+
   // api route to view currently authenticated user
   app.get('/api/current_user', (req, res) => {
     res.send(req.user); // passport attaches user model instance to the request obj
