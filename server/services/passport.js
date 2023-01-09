@@ -14,7 +14,17 @@ passport.use(
       callbackURL: '/auth/google/callback',
     },
     (accessToken, refreshToken, profile, done) => {
-      new User({ googleId: profile.id }).save(); // save user's google profile id in mongodb
+      const foundUser = User.findOne({ googleId: profile.id }).then(
+        (existingUser) => {
+          if (existingUser) {
+            // user already has a record in mongodb
+            console.log('user already exists!!!');
+          } else {
+            // save user's google profile id in mongodb
+            new User({ googleId: profile.id }).save();
+          }
+        }
+      );
     }
   )
 );
