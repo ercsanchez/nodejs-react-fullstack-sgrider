@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # temporary solution to securing google OAuth credentials
-keys.js
+dev.js
