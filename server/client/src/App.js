@@ -17,6 +17,7 @@ function App() {
         >
           Learn React
         </a>
+        <a href="http://localhost:5000/auth/google">Login with Google</a>
       </header>
     </div>
   );
