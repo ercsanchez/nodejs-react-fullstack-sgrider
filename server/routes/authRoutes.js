@@ -1,12 +1,17 @@
 const passport = require('passport');
 
 module.exports = (app) => {
-  app.get(
-    '/auth/google',
-    passport.authenticate('google', {
-      scope: ['profile', 'email'],
-    })
-  );
+  // app.get(
+  //   '/auth/google',
+  //   passport.authenticate('google', {
+  //     scope: ['profile', 'email'],
+  //   })
+  // );
+
+  app.get('/auth/google', (req, res) => {
+    console.log('Accessing localhost:5000/auth/google ....');
+    res.json({ server: 'you have access...' });
+  });
 
   app.get('/auth/google/callback', passport.authenticate('google'));
 
