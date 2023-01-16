@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/:match*",
-      "destination": "http://172.18.21.241:5000/:match*"
+      "source": "/auth/google",
+      "destination": "http://172.18.37.24:5000/auth/google"
     }
   ]
 }
