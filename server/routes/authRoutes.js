@@ -18,7 +18,8 @@ module.exports = (app) => {
 
   app.get('/api/logout', (req, res) => {
     req.logout(); // removes authenticated user from the cookie
-    res.send(req.user); // will show an empty screen since no user attached to cookie
+    // res.send(req.user); // will show an empty screen since no user attached to cookie
+    res.redirect('/');
   });
 
   // api route to view currently authenticated user
