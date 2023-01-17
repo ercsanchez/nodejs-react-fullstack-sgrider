@@ -32,5 +32,20 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 
+if (process.env.NODE_ENV === 'production') {
+  // Express will serve up production assets (/client/build/static/ files), e.g. main.js, main.css, etc.
+  // .static is middleware to determine location of the js and css file
+  // express determines the location based on the script and style tags in the index.html
+  // order of operations matters, as express will try to match location of static file first (index.html is outside static dir)
+  app.use(express.static('client/build'));
+
+  // Express will serve up index.html file if it doesn't recognize the route
+  // catch-all case
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
