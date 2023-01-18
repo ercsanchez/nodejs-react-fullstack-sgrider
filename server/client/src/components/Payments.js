@@ -3,7 +3,7 @@ import StripeCheckout from 'react-stripe-checkout';
 
 class Payments extends Component {
   render() {
-    debugger;
+    // debugger; // js feature | adds a breakpoint when js loads
 
     return (
       <StripeCheckout
