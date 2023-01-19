@@ -27,6 +27,7 @@ app.use(passport.session());
 // require executes ./routes/authRoutes file, w/c returns a function
 // then the function is executed, where app is passed as an arg
 require('./routes/authRoutes')(app);
+require('./routes/billingRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
