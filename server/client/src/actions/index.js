@@ -15,3 +15,9 @@ export const fetchUser = () => async (dispatch) => {
 //     payload: request,
 //   };
 // });
+
+// reusing the authReducer to get the user since credits field is located there
+export const handleToken = (token) => async (dispatch) => {
+  const res = await axios.post('/api/stripe', token);
+  dispatch({ type: FETCH_USER, payload: res.data });
+};
